@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h2>Ajouter un Hôtel</h2>
+  <form (ngSubmit)="addHotel()">
+    <div class="mb-3">
+      <label class="form-label">Nom</label>
+      <input type="text" class="form-control" [(ngModel)]="hotel.nomHotel" name="nomHotel" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Ville</label>
+      <input type="text" class="form-control" [(ngModel)]="hotel.ville" name="ville" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Adresse</label>
+      <input type="text" class="form-control" [(ngModel)]="hotel.adresse" name="adresse" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</div>

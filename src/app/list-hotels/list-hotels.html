@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Liste des Hôtels</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Ville</th>
+        <th>Adresse</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of hotels">
+        <td>{{hotel.idHotel}}</td>
+        <td>{{hotel.nomHotel}}</td>
+        <td>{{hotel.ville}}</td>
+        <td>{{hotel.adresse}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
