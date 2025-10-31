@@ -1,18 +1,55 @@
 <div class="container mt-4">
   <div class="card shadow">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h4>Liste des Chambres</h4>
+    </div>
+
     <div class="card-body">
-      <table class="table">
-        <thead>
-          <tr><th>Liste des Chambres</th></tr>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Rechercher par numéro..."
+          [(ngModel)]="searchNumero"
+          (input)="onSearchChambre()"
+        />
+      </div>
+      <table class="table table-bordered table-striped align-middle">
+        <thead class="table-light text-center">
+          <tr>
+            <th>Numéro</th>
+            <th>Type</th>
+            <th>Prix / Nuit</th>
+            <th>Date Réservation</th>
+            <th>Hôtel</th>
+            <th>Actions</th>
+          </tr>
         </thead>
-        @for (chambre of chambres; track chambre) {
-          <tbody>
-            <tr>
-              <td>{{ chambre }}</td>
+
+        <tbody>
+          @for (chambre of filteredChambres; track chambre.idChambre) {
+            <tr class="text-center">
+              <td>{{ chambre.numero }}</td>
+              <td>{{ chambre.type }}</td>
+              <td>{{ chambre.prixParNuit }} DT</td>
+              <td>{{ chambre.dateReservation | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ chambre.hotel?.nomHotel || '—' }}</td>
+              <td>
+                <button class="btn btn-warning btn-sm me-2" (click)="onEdit(chambre.idChambre)">
+                  Modifier
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="onDelete(chambre.idChambre)">
+                  Supprimer
+                </button>
+              </td>
             </tr>
-          </tbody>
-        }
+          }
+        </tbody>
       </table>
+
+      <div *ngIf="chambres.length === 0" class="text-center text-muted mt-3">
+        Aucune chambre disponible.
+      </div>
     </div>
   </div>
 </div>
