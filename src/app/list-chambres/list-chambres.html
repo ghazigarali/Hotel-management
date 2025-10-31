@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr><th>Liste des Chambres</th></tr>
+        </thead>
+        @for (chambre of chambres; track chambre) {
+          <tbody>
+            <tr>
+              <td>{{ chambre }}</td>
+            </tr>
+          </tbody>
+        }
+      </table>
+    </div>
+  </div>
+</div>
